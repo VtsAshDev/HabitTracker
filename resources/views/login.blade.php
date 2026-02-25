@@ -4,33 +4,56 @@
       Faça Login
     </h1>
 
-    <section>
-      <form action="/login" method="POST">
+    <section class="bg-white max-w-[600px] mx-auto p-10 border-2 mt-4">
+      <h1>
+        Faça Login
+      </h1>
+
+      <p>
+        Insira seus dados para acessar
+      </p>
+
+      <form action="/login" method="POST" class="flex flex-col gap-4 mt-4">
         @csrf
 
-        @error('email')
-        <p class="text-red-500 text-xl mt-1">
-          {{ $message }}
-        </p>
-        @enderror
 
-        <input
-          type="email"
-          name="email"
-          placeholder="email@email.com"
-          class="bg-white p-2 border-2">
+        <div class="flex flex-col gap-2 mb-4">
+          <label for="email">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            placeholder="email@email.com"
+            class="bg-white p-2 border-2 @error('email') border-red-500 @enderror">
+          <p class="text-red-500 text-sm ">
+            @error('email')
+              {{ $message }}
+            @enderror
+          </p>
+        </div>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="******"
-          class="bg-white p-2 border-2">
-        <button
-          type="submit"
-          class="bg-white border-2 p-2"
-        >
-          Entrar
-        </button>
+        <div class="flex flex-col gap-2 mb-4">
+          <label>
+            Senha
+          </label>
+          <input
+            type="password"
+            name="password"
+            placeholder="******"
+            class="bg-white p-2 border-2 @error('password') border-red-500 @enderror">
+          <p class="text-red-500 text-sm">
+            @error('password')
+            {{ $message }}
+            @enderror
+          </p>
+          <button
+            type="submit"
+            class="bg-white border-2 p-2"
+          >
+            Entrar
+          </button>
+          </div>
       </form>
     </section>
   </main>
