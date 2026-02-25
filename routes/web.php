@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
 
 Route::get('/welccome', function () {
     return view('welcome');
 });
 
-Route::get('/', [\App\Http\Controllers\SiteController::class, 'index']);
+Route::get('/', [SiteController::class, 'index']);
