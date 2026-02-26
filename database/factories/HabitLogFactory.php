@@ -19,8 +19,8 @@ class HabitLogFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'habit_id' => Habit::factory(),
-            'completed_at' => $this->faker->dateTimeBetween('-30 days','now')->format('Y-m-d'),
+            'habit_id' => Habit::query()->inRandomOrder()->first()->id,
+            'completed_at' => $this->faker->unique()->dateTimeBetween('-30 days', 'now')->format('Y-m-d'),
         ];
     }
 }
