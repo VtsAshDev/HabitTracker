@@ -24,10 +24,8 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnDelete();
             $table->date('completed_at');
-            $table
-                ->string('name')
-                ->unique();
             $table->timestamps();
+            $table->unique(['habit_id', 'completed_at']);
         });
     }
 
