@@ -1,16 +1,12 @@
 <x-layout>
   <main class="py-10">
-    <h1>
-      Faça Login
-    </h1>
-
-    <section class="bg-white max-w-[600px] mx-auto p-10 border-2 mt-4">
-      <h1>
-        Faça Login
+    <section class="bg-white max-w-[600px] mx-auto p-10 pb-6 border-2 mt-4">
+      <h1 class="text-4xl font-bold mb-4">
+        Registre-se
       </h1>
 
-      <p>
-        Insira seus dados para acessar
+      <p class="text-xl mb-4">
+        Preencha as informações para cadastrar seus hábitos
       </p>
 
       <form action="/login" method="POST" class="flex flex-col gap-4 mt-4">
@@ -55,6 +51,14 @@
           </button>
           </div>
       </form>
+
+      <p class="text-center mt-2">
+        Ainda não tem uma conta?
+        <a href="{{ route('site.register') }}" class="underline">
+          Registre-se
+        </a>
+      </p>
+
     </section>
   </main>
 </x-layout>

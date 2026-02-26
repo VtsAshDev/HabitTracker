@@ -1,7 +1,7 @@
 <x-layout>
   <main class="py-10">
     <h1>
-      dash
+      DashBoard
     </h1>
 
     @auth
