@@ -47,9 +47,17 @@ class HabitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Habit $habit)
+    public function update(HabitRequest $request, Habit $habit)
     {
-        //
+        if ($habit->user_id !== auth()->user()->id) {
+            abort(403,'Esse hábito não te pertence');
+        }
+
+        $habit->update($request->all());
+
+        return redirect()
+            ->route('site.dashboard')
+            ->with('success', 'Hábito atualizado com sucesso');
     }
 
     /**
@@ -57,6 +65,18 @@ class HabitController extends Controller
      */
     public function destroy(Habit $habit)
     {
-        //
+        if ($habit->user_id !== auth()->user()->id) {
+            abort(403,'Esse hábito não te pertence');
+        }
+
+        $habit->delete();
+
+        return redirect('site.dashboard')
+            ->with('success', 'Habito removido com sucesso');
+    }
+
+    public function edit(Habit $habit): View
+    {
+        return view('habits.edit', compact('habit'));
     }
 }

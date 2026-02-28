@@ -1,0 +1,36 @@
+<x-layout>
+  <main class="py-10">
+    <h1 class="font-bold text-4xl text-center mb-4">
+      Editar Hábito
+    </h1>
+    <section class="bg-white max-w-150 mx-auto p-10 pb-6 border-2 mt-4">
+      <form action="{{ route('habit.update',$habit) }}" class="flex flex-col gap-2" method="POST">
+        @csrf
+        @method('PUT')
+
+        <div class="flex flex-col gap-2 mb-4">
+          <label>
+            Nome do Hábito
+          </label>
+          <input
+            type="text"
+            name="name"
+            value="{{$habit->name}}"
+            class="bg-white p-2 border-2 @error('name') border-red-500 @enderror">
+          <p class="text-red-500 text-sm">
+            @error('name')
+              {{ $message }}
+            @enderror
+          </p>
+          <button
+            type="submit"
+            class="bg-white border-2 p-2"
+          >
+            Editar Hábito
+          </button>
+        </div>
+
+      </form>
+    </section>
+  </main>
+</x-layout>

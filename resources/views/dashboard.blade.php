@@ -26,9 +26,19 @@
               <p class="font-bold text-xl">
                 - {{ $habit->name }}
               </p>
-              <span class="font-light text-md">
+              <p class="font-light text-md">
                 [{{ $habit->habitLogs->count() }}]
-              </span>
+              </p>
+              <a href="{{ route('habit.edit',$habit) }} " class="bg-white text-white p-1 border-2 hover:opacity-50 cursor-pointer">
+                <x-icons.pencil/>
+              </a>
+              <form action="{{ route('habit.destroy', $habit) }}" method="POST">
+                @csrf
+                @method('DELETE')
+              <button type="submit" class="bg-red-500 text-white p-1 border-2 hover:opacity-50 cursor-pointer">
+                <x-icons.trash/>
+              </button>
+              </form>
             </div>
             <li>
 
