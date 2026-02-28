@@ -71,8 +71,9 @@ class HabitController extends Controller
 
         $habit->delete();
 
-        return redirect('site.dashboard')
-            ->with('success', 'Habito removido com sucesso');
+        return redirect()
+            ->route('site.dashboard')
+            ->with('success', 'Hábito atualizado com sucesso');
     }
 
     public function edit(Habit $habit): View

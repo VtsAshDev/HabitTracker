@@ -1,5 +1,5 @@
 <x-layout>
-  <main class="py-10">
+  <main class="py-10 min-h-[calc(100vh-100px)]">
     <h1 class="font-bold text-4xl text-center mb-4">
       DashBoard
     </h1>
@@ -47,9 +47,6 @@
             <p>
               Ainda não há hábitos cadastrados
             </p>
-            <a href="route('habit.create')" class="bg-white p-2 border-2">
-              Cadastre um novo hábito agora
-            </a>
           @endforelse
         </ul>
       </div>
