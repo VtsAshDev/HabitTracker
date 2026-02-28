@@ -1,12 +1,35 @@
 <x-layout>
-  <main class="py-10 min-h-[calc(100vh-100px)]">
-    <h1 class="font-bold text-4xl text-center mb-4">
-      DashBoard
-    </h1>
+  <main class="py-10 min-h-[calc(100vh-100px)] px-4">
 
-      <a href="{{ route('habit.create') }}" class="p-2 border-2 bg-white font-bold block">
-        Cadastrar Novo Hábito
-      </a>
+    <nav>
+      <ul class="flex gap-4 items-center">
+        <li>
+          <a href="{{route("habit.index")}}" class=" {{Route::is('habit.index') ? 'font-bold' : ''}} text-lg p-2 border-r-2 border-r-habit-orange pr-2">
+            Hoje
+          </a>
+        </li>
+        <li>
+          <a href="{{route("site.dashboard")}}" class="p-2 border-r-2 border-r-habit-orange pr-2">
+            Historico
+          </a>
+        </li>
+        <li>
+          <a href="{{route("site.dashboard")}}" class="p-2 border-r-2 border-r-habit-orange pr-2">
+            Calendário
+          </a>
+        </li>
+        <li>
+          <a href="{{route("site.dashboard")}}" class="p-2 border-r-2 border-r-habit-orange pr-2">
+            Gerenciar Hábitos
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <a href="{{ route('habit.create') }}" class="p-2 border-2 bg-white font-bold block">
+      Adicionar
+    </a>
 
     @session('success')
     <div class="flex">
